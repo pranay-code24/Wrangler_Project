@@ -31,6 +31,49 @@ More [here](wrangler-docs/upcoming-features.md) on upcoming features.
   * A new capability that allows CDAP Administrators to **restrict the directives** that are accessible to their users.
 More information on configuring can be found [here](wrangler-docs/exclusion-and-aliasing.md)
 
+  * **Aggregate Stats Directive with Unit Parsers (NEW)**:
+    Wrangler now supports native parsing of **byte sizes** (e.g., `10KB`, `2.5MB`) and **time durations** (e.g., `150ms`, `2s`) directly within directives.
+
+    #### `aggregate-stats` Directive
+    Aggregates byte size and duration columns over all rows.
+
+    **Usage:**
+    ```wrangler
+    aggregate-stats :data_transfer_size :response_time :total_size_mb :total_time_sec
+    ```
+
+    **Parameters:**
+    1. `sourceByteColumn` — Column containing values like `"512KB"`, `"1.5MB"`
+    2. `sourceTimeColumn` — Column containing time values like `"120ms"`, `"2s"`
+    3. `outputByteColumn` — Total or average output size (e.g., MB)
+    4. `outputTimeColumn` — Total or average output duration (e.g., seconds)
+
+    **Output:**
+    A single row with:
+    - Aggregated byte size in MB
+    - Aggregated time duration in seconds
+
+    **Example:**
+    Input:
+    ```
+    data_transfer_size | response_time
+    -------------------|--------------
+    "512KB"            | "120ms"
+    "1MB"              | "880ms"
+    ```
+
+    Recipe:
+    ```
+    aggregate-stats :data_transfer_size :response_time :total_size_mb :total_time_sec
+    ```
+
+    Output:
+    ```
+    total_size_mb | total_time_sec
+    --------------|----------------
+    1.5           | 1.0
+    ```
+
 ## Demo Videos and Recipes
 
 Videos and Screencasts are best way to learn, so we have compiled simple, short screencasts that shows some of the features of Data Prep. Additional videos can be found [here](https://www.youtube.com/playlist?list=PLhmsf-NvXKJn-neqefOrcl4n7zU4TWmIr)
