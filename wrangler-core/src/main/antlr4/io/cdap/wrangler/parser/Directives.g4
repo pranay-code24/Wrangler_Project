@@ -140,7 +140,12 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String
+ | Number
+ | Column
+ | Bool
+ | BYTE_SIZE
+ | TIME_DURATION
  ;
 
 ecommand
@@ -195,7 +200,6 @@ identifierList
  : Identifier (',' Identifier)*
  ;
 
-
 /*
  * Following are the Lexer Rules used for tokenizing the recipe.
  */
@@ -247,6 +251,11 @@ BackSlash: '\\';
 Dollar   : '$';
 Tilde    : '~';
 
+BYTE_SIZE: Digit+ ('.' Digit+)? BYTE_UNIT;
+TIME_DURATION: Digit+ ('.' Digit+)? TIME_UNIT;
+
+fragment BYTE_UNIT: [kK][bB] | [mM][bB] | [gG][bB] | [tT][bB];
+fragment TIME_UNIT: 'ms' | 's' | 'm' | 'h';
 
 Bool
  : 'true'
