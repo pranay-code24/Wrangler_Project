@@ -1,0 +1,41 @@
+# prompts.txt
+
+# AI Tool Used: ChatGPT
+# Purpose: Enhancement of Wrangler core library to support ByteSize and TimeDuration unit parsing and aggregation
+
+## Prompts Used
+
+1. "Guide me"  
+   → Used to outline an approach to the Wrangler enhancement assignment and break down the requirements into actionable phases.
+
+2. "do"  
+   → Requested execution of Phase 7, specifically README and prompts.txt generation.
+
+3. "Where to add this"  
+   → Asked for precise placement of new feature documentation in README.md.
+
+4. "change origin command github"  
+   → Help with updating git remote origin to point to personal GitHub fork.
+
+5. "What to do after Phase 7"  
+   → Guidance on final deliverables, testing, and assignment submission.
+
+6. "5. AI Tools Usage..."  
+   → Clarified how to properly fulfill the AI tooling documentation requirement.
+
+## Additional Prompts (used or paraphrased)
+
+- "ANTLR lexer rule for BYTE_SIZE and TIME_DURATION units"
+- "How to parse values like '10MB' and '150ms' into canonical units in Java"
+- "Implement a custom aggregation directive in Wrangler using Directive interface"
+- "How to accumulate state using ExecutorContext in Wrangler"
+- "Generate unit tests for parsing and aggregation logic in Wrangler"
+- "Java conversion logic for handling KB, MB, GB, and ms, s, min"
+
+## Notes
+
+- ChatGPT was used as a pair-programming assistant for architecture planning, parser rule design, test scaffolding, and documentation drafting.
+- Final implementation, debugging, and tests were reviewed and iterated manually.
+- IntelliJ IDEA was used as the primary IDE; all build and test verification done using `mvn clean install`.
+
+# End of prompts.txt
